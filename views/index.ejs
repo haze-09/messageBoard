@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        <%= title %>
+    </title>
 </head>
+
 <body>
-    hey this is the index
-    
+    <h1>
+        <%= title %>
+    </h1>
+
+    <ul>
+        <% messages.forEach(message=> { %>
+            <li>
+                <p>
+                    <%=message.user%>: <%=message.text%>
+                    <%=message.added.toLocaleString() %>
+                </p>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/new">Add Message</a>
+
 </body>
+
 </html>

@@ -6,7 +6,7 @@ const app = express();
 const PORT = 8080;
 const __dirname = import.meta.dirname;
 
-const messages = [
+app.locals.messages = [
   {
     text: "Hi there!",
     user: "Amando",
@@ -19,8 +19,12 @@ const messages = [
   },
 ];
 
+app.use(express.urlencoded({ extended: true }));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+
 
 app.use("/", indexRouter);
 
