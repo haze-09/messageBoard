@@ -1,23 +1,12 @@
 import { Router } from "express";
+import * as indexController from '../controllers/indexController.js'
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
-  const messages = req.app.locals.messages;
-  res.render("index", { title: "Mini Message Board", messages });
-});
+indexRouter.get("/", indexController.indexGet);
 
-indexRouter.get("/new", (req, res) => {
-  res.render("form", { title: "Mini Message Board" });
-});
+indexRouter.get("/new", indexController.indexNewGet);
 
-indexRouter.post("/new", (req, res) => {
-  req.app.locals.messages.push({
-    text: req.body.text,
-    user: req.body.user,
-    added: new Date(),
-  });
-  res.redirect("/");
-});
+indexRouter.post("/new", indexController.indexNewPost);
 
 export default indexRouter;
