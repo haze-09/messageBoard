@@ -14,16 +14,22 @@
         <%= title %>
     </h1>
 
-    <ul>
-        <% messages.forEach(message=> { %>
-            <li>
-                <p>
-                    <%=message.user%>: <%=message.text%>
-                    <%=message.added.toLocaleString() %>
-                </p>
-            </li>
-        <% }); %>
-    </ul>
+    
+        <% if (locals.messages){ %>
+            <ul>
+            <% messages.forEach(message=> { %>
+                <li>
+                    <p>
+                        <%=message.name%>: <%=message.text%>
+                        <%=message.added.toLocaleString() %>
+                    </p>
+                </li>
+            <% }); %>
+        </ul>
+
+         <% } else { %>
+            <p>no messages available</p>
+            <% } %>   
 
     <a href="/new">Add Message</a>
 

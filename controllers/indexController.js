@@ -1,5 +1,8 @@
-export const indexGet = (req, res) => {
-  res.render("index", { title: "Mini Message Board" });
+import { getMessages } from "../db/queries.js";
+
+export const indexGet = async (req, res) => {
+  let messages = await getMessages();
+  res.render("index", { title: "Mini Message Board", messages: messages });
 };
 
 export const indexNewGet = (req, res) => {

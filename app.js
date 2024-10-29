@@ -1,23 +1,24 @@
+import 'dotenv/config';
 import express from "express";
 import path from "path";
 import indexRouter from "./routes/indexRouter.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const __dirname = import.meta.dirname;
 
-app.locals.messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+// app.locals.messages = [
+//   {
+//     text: "Hi there!",
+//     user: "Amando",
+//     added: new Date(),
+//   },
+//   {
+//     text: "Hello World!",
+//     user: "Charles",
+//     added: new Date(),
+//   },
+// ];
 
 app.use(express.urlencoded({ extended: true }));
 
