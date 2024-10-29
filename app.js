@@ -7,19 +7,6 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const __dirname = import.meta.dirname;
 
-// app.locals.messages = [
-//   {
-//     text: "Hi there!",
-//     user: "Amando",
-//     added: new Date(),
-//   },
-//   {
-//     text: "Hello World!",
-//     user: "Charles",
-//     added: new Date(),
-//   },
-// ];
-
 app.use(express.urlencoded({ extended: true }));
 
 app.set("views", path.join(__dirname, "views"));
