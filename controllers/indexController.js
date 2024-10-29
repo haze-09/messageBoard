@@ -1,4 +1,4 @@
-import { getMessages } from "../db/queries.js";
+import { getMessages, postMessage } from "../db/queries.js";
 
 export const indexGet = async (req, res) => {
   let messages = await getMessages();
@@ -9,6 +9,8 @@ export const indexNewGet = (req, res) => {
   res.render("form", { title: "Mini Message Board" });
 };
 
-export const indexNewPost = (req, res) => {
+export const indexNewPost = async (req, res) => {
+  const {name,text} = req.body;
+  await postMessage(name,text);
   res.redirect("/");
 };
